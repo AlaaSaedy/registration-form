@@ -9,19 +9,24 @@ $(".message a").click(function () {
 $(document).ready(function () {
   // Validate Email
   let emailError = true;
-
+  $("#email").keyup(function () {
+    validateEmail();
+  });
   function validateEmail() {
     const emailInput = document.getElementById("email");
     const emailInputMsg = document.getElementById("emailvalid");
     let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
     let emailVal = emailInput.value;
 
-    if (regex.test(emailVal)) {
-      emailInputMsg.innerText = "";
-      emailError = true;
-    } else {
+    if (emailVal === "") {
+      emailInputMsg.innerText = "Email is required";
+      emailError = false;
+    } else if (!regex.test(emailVal)) {
       emailInputMsg.innerText = "The email must be a valid email address";
       emailError = false;
+    } else {
+      emailInputMsg.innerText = "";
+      emailError = true;
     }
   }
 
@@ -30,10 +35,6 @@ $(document).ready(function () {
   $(".name-check").hide();
   let nameError = true;
   let usernameError = true;
-
-  $("#username").keyup(function () {
-    validateFullNameAndUsername();
-  });
 
   function validateFullNameAndUsername() {
     let nameValue = $("#fullName").val();
