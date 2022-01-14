@@ -13,29 +13,33 @@
         <div class="form">
           <form role="form" id="registerForm" class="register-form">
             <div class="form-group">
+              <label for="fullName">Email</label>
               <input
                 type="text"
                 id="fullName"
                 name="full-name"
-                placeholder="Name"
+                aria-required="true"
               />
               <small class="name-check"></small>
             </div>
             <div class="form-group">
-              <input type="text" id="email" name="email" placeholder="Email" />
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" aria-required="true" />
               <small id="emailvalid" class="email-check"></small>
             </div>
             <div class="form-group">
+              <label for="username">Username</label>
               <input
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Username"
+                aria-required="true"
               />
               <small class="username-check"></small>
             </div>
             <div class="form-group">
-              <input type="password" id="password" placeholder="Password" />
+              <label for="password">Password</label>
+              <input type="password" id="password" aria-required="true" />
               <small class="password-check"></small>
             </div>
             <button class="submit-btn" type="submit">
@@ -46,17 +50,21 @@
           <form role="form" id="loginForm" class="login-form">
             <div class="form-group">
               <label for="loginUsername">Username</label>
-              <input id="loginUsername" type="text" />
+              <input id="loginUsername" type="text" aria-required="true" />
               <small class="username-check"></small>
             </div>
             <div class="form-group">
-              <label for="loginPasswordInput">Password </label>
-              <input id="loginPasswordInput" type="password" />
+              <label for="loginPasswordInput">Password</label>
+              <input
+                id="loginPasswordInput"
+                type="password"
+                aria-required="true"
+              />
               <small class="password-check"></small>
             </div>
             <button type="submit">Sign in</button>
             <p class="message">
-              Not registered? <a href="#">Create an account</a>
+              Not registered? <a href="#">Sign Up</a>
             </p>
           </form>
         </div>

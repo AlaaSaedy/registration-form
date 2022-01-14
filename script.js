@@ -122,4 +122,41 @@ $(document).ready(function () {
       return false;
     }
   });
+
+  // Login Form
+
+  $("#loginPasswordInput").keyup(function () {
+    const loginPassword = $("#loginPasswordInput").val();
+    validatePassword(loginPassword);
+  });
+
+  $("#loginForm").submit((e) => {
+    let loginUsernameError = true;
+
+    const loginPassword = $("#loginPasswordInput").val();
+    validatePassword(loginPassword);
+
+    const loginFormUsername = $("#loginUsername").val();
+    if (loginFormUsername.trim() === "") {
+      $(".username-check").show();
+      $(".username-check").html("The username is required");
+      loginUsernameError = false;
+    } else {
+      $(".username-check").hide();
+      loginUsernameError = true;
+    }
+
+    const data = $("#loginForm").serialize();
+
+    if (passwordError === true && loginUsernameError === true) {
+      $.ajax({
+        type: "POST",
+        url: API_PATH_SIGNIN,
+        data: data,
+      });
+      return true;
+    } else {
+      return false;
+    }
+  });
 });
