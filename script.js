@@ -44,6 +44,7 @@ $(document).ready(function () {
       nameError = false;
     } else {
       $(".name-check").hide();
+      nameError = true;
     }
 
     let usernameValue = $("#username").val();
@@ -57,6 +58,7 @@ $(document).ready(function () {
       usernameError = false;
     } else {
       $(".username-check").hide();
+      usernameError = true;
     }
   }
 
@@ -86,8 +88,8 @@ $(document).ready(function () {
   }
 
   $("#registerForm").submit((e) => {
-    const registerPassword = $("#password").val();
     e.preventDefault();
+    const registerPassword = $("#password").val();
 
     validateFullNameAndUsername();
     validatePassword(registerPassword);
